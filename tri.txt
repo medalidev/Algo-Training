@@ -1,0 +1,164 @@
+EX 1
+
+variable
+i,N,X: entier 
+T: tableau d'entier 
+trouv: booléen
+début
+écrire("la taille")
+lire(N)
+pour i de 0 à N-1 faire 
+lire(T[i])
+finpour
+écrire("l'élément")
+lire(X)
+i<--0
+trouv<--FAUX 
+tantque (trouv=FAUX) && (i<N) faire 
+si T[i]=X alors trouv<--VRAI 
+finsi 
+i<--i+1
+fintantque
+si trou=VRAI alors 
+écrire("la valeur", X, "éxiste dans le tableau")
+sinon 
+écrire("la valeur", X, "n'éxiste pas dans le tableau")
+fin 
+
+EX 2
+
+variable
+T: tableau d'entier 
+N,i,sup,j,min,max,mil: entier 
+trouv: booléen 
+début
+écrire("la taille")
+lire(N)
+pour i de 0 à N-1 faire 
+lire(T[i])
+finpour
+sup<--0
+pour i de N-1 à 0 faire 
+  pour j de 0 à i faire
+  si T[j]>T[j+1] alors 
+  sup<--T[j]
+  T[j]<--T[j+1]
+  T[j+1]<--sup 
+  finsi 
+  finpour
+finpour 
+écrire("un élément")
+lire(X)
+min<--0
+max<--N-1
+mil=(min+max)DIV2 
+tantque trouv=faux min<max faire
+mil<--(min+max)div2 
+si T[mil]=X alors trouv=vrai 
+sinon si T[mil]>X alors max<--mil-1
+      sinon min<--mil+1
+      finsi
+finsi 
+fintantque
+si trouv=vrai alors 
+écrire("trouvée")
+sinon écrire("non trouvée)
+finsi 
+fin
+
+EX 3
+
+variable
+T: tableau d'entier 
+i,j,sup,N: entier 
+début
+écrire("la taille")
+lire(N)
+pour i de 0 à N-1 faire 
+lire(T[i])
+finpour
+sup<--0
+pour i de N-1 à 0 faire 
+  pour j de 0 à i faire 
+    si T[j]>T[j+1] alors 
+      sup<--T[j]
+       T[j]<--T[j+1]
+      T[j+1]<--sup 
+    finsi 
+  finpour
+finpour 
+fin
+
+EX 4
+
+variable
+T: tableau d'entier 
+i,N,j,min,case: entier 
+début
+écrire("la taille")
+lire(N)
+pour i de 0 à N-1 faire 
+lire(T[i])
+finpour
+pour i de 0 à N-1 faire
+  min<--T[i]
+  case<--i
+   pour j de i à N-1 faire 
+     si T[j+1]<T[j] alors 
+        min<--T[j+1] 
+        case<--j+1
+     finsi 
+   finpour 
+  T[case]<--T[i]
+  T[i]<--min 
+finpour
+fin
+
+CHALLENGE 
+
+EX 1
+
+variable
+CH,X: chaine de caractère
+i: entier 
+trouv: booléen
+début
+écrire("une chaine de caractère")
+lire(CH) 
+écrire("un caractère")
+lire(X)
+i<--0
+trouv<--faux 
+Tantque trouv=faux && i<longueur(CH) faire 
+  si CH[i]=X alors trouv<--vrai 
+  finsi 
+  i<--i+1
+fintantque
+si trouv=vrai alors 
+écrire("existe")
+sinon  écrire("n'existe pas")  
+finsi
+fin 
+
+EX 2
+
+variable
+T: tableau d'entier 
+i,j,inf,N: entier 
+début
+écrire("la taille")
+lire(N)
+pour i de 0 à N-1 faire 
+lire(T[i])
+finpour
+inf<--T[0]
+pour i de N-1 à 0 faire 
+  pour j de 0 à i faire 
+    si T[j]<T[j+1] alors 
+      inf<--T[j]
+       T[j]<--T[j+1]
+      T[j+1]<--inf 
+    finsi 
+  finpour
+finpour 
+fin

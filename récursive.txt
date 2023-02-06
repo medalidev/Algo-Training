@@ -1,0 +1,297 @@
+EX 1
+variable 
+ch:chaine de caractère 
+R:entier 
+fonction palindrome(CH:chaine de caractère, i,n:entier) : entier
+variable 
+p:entier 
+début
+si i>=longueur(CH)div2 alors 
+retourner 1
+finsi 
+si (CH[i]==CH[n-1]) alors 
+palindrome(CH,i+1,n-1)
+sinon 
+retourner -1
+finsi 
+fin 
+debut
+ecrire("un mot")
+lire(ch)
+ i =0
+ n<-- longueur (ch)
+R<--palindrome(ch,i,n)
+écrire(R)
+fin
+
+EX 2
+variable 
+N:entier 
+fonction carre(n:entier): entier 
+variable  
+début 
+si n=0 alors 
+retourner 0
+sinon 
+retourner carre(n-1)+2*n-1
+finsi 
+fin
+début 
+écrire("un entier")
+lire(N)
+écrire("le carré de", N, "est:", carre(N)) 
+fin 
+
+EX 3
+variable
+A,B: entier 
+fonction pgcd(a,b:entier): entier 
+variable 
+début
+si a=0 alors 
+retourner b 
+sinon 
+si b=0 alors 
+retourner a 
+sinon  
+si a>b alors 
+pgcd(a-b,b) 
+sinon 
+pgcd(a,b-a) 
+finsi 
+finsi 
+finsi 
+fin 
+début 
+écrire("entier 1:")
+lire(A)
+écrire("entier 2:")
+lire(B)
+écrire(pgcd(A,B))
+fin 
+
+EX 4
+variable 
+R,S,j,n:entier
+TN:tableau d'entier 
+fonction somme(T:tableau d'entier, i:entier,s:entier):entier 
+variable 
+s:entier 
+début 
+si i<longueur(T) alors
+somme(T,i+1,s+T[i])
+finsi 
+retourner s 
+fin 
+début 
+écrire("entier")
+lire(n)
+pour j de 0 à n-1 faire 
+lire(TN[j])
+finpour 
+R<-- somme(TN,0,0)
+ecrire(S)
+fin
+
+EX 5
+variable 
+TN:tableau d'entier 
+N,j,R:entier 
+fonction recherche(T,min,max)
+variable 
+mil:entier 
+début 
+si max<min alors 
+retourner 0
+sinon  
+mil<--(max+min)div2
+si T[mil]==A alors 
+retourner 1
+sinon 
+si T[mil]>A alors 
+recherche(T,min,mil-1)
+sinon 
+recherche(T,mil+1,max)
+finsi 
+finsi 
+finsi 
+fin 
+début 
+/** deja repmli 
+i <--0
+/
+R<--recherche(TN,i,n-1)
+si R==0 alors 
+écrire("n'existe pas")
+sinon 
+écrire("existe")
+finsi 
+fin 
+
+variable 
+TA:tableau d'entier 
+j,n,A: entier 
+fonction recherche(t:tableau d'entier, i:entier, X:entier): entier 
+variable 
+
+début 
+si (i>=longueur(T)) alors
+retourner 0
+finsi 
+si (T[i]==X) alors 
+retourner 1
+sinon 
+recherche(T,i+1,X)
+finsi 
+fin 
+début 
+écrire("valeur")
+lire(A) 
+R<--recherche(TA,i,A)
+si R==1 alors 
+écrire("existe")
+sinon 
+écrire("n'existe pas")
+finsi 
+fin 
+
+EX 6
+variable 
+TN:tableau d'entier 
+k,N:entier 
+fonction inverse(T:tableau d'entier, i:entier, n:entier):tableau 
+variable 
+
+début
+si i>=n alors 
+retourner T 
+sinon  
+per<--T[i]
+T[i]<--T[n-1]
+T[n-1]<--per
+si i<n/2 alors 
+inverse(T,i+1,n-1)
+finsi
+retourner T 
+fin 
+début 
+écrire("entier")
+lire(N)
+pour k de 0 à N-1 faire 
+lire(TN[k])
+finpour
+i<--0
+écrire(inverse(TN,i,N))
+fin
+ 
+
+CHALLENGE 
+
+EX 1 
+variable 
+N:entier 
+TN:tableau d'entier 
+fonction remplir(T:tableau d'entier, i,n:entier):tableau
+variable 
+
+début 
+si i>=n alors 
+retourner T 
+sinon 
+lire(T[i]) 
+remplir(T,i+1,n)
+finsi
+fin 
+début 
+écrire("entier")
+lire(N)
+i<--0
+remplir(TN,i,N)
+fin 
+
+EX 2 
+variable 
+N:entier 
+TN:tableau d'entier 
+fonction afficher(T:tableau d'entier, i,n:entier):tableau
+variable 
+
+début 
+si i>=n alors 
+retourner T
+sinon 
+écrire(T[i]) 
+afficher(T,i+1,n)
+finsi 
+fin 
+début 
+écrire("entier")
+lire(N)
+i<--0
+afficher(TN,i,N)
+fin 
+
+EX 3
+variable 
+SH:chaine de caractère 
+fonction inversion(CH,ch1:chaine de caractère, i:entier):chaine de caractère 
+variable 
+per:chaine de caractère 
+début 
+si i>=longueur(CH) alors 
+retourner ch1 
+sinon 
+ch1<--CH[i]+ch1 
+inversion(CH,ch1,i+1)
+finsi 
+fin 
+début 
+écrire("une chaine")
+lire(SH)
+i<--0
+écrire(inversion(SH,sh1,i))
+fin 
+
+
+COMPLEXITE 
+CHALLENGE 
+
+EX1
+variable 
+
+fonction tri-rapide(T:tableau d'entier, D,F:entier)
+début 
+j<--0
+k<--0
+si F<=D alors 
+retourner T 
+sinon 
+P<--(F+D)div2 
+pour i de 0 à longueur(T)-1 faire 
+si T[i]<T[P]alors 
+T1[j]<--T[i]
+j<--j+1 
+sinon  
+T2[k]<--T[i]
+k<--k+1
+finpour
+T[j]<--T[P] 
+pour i de 0 à longueur(T)-1 faire 
+si i<j alors 
+T[i]<--T1[i]
+sinon
+si i>j alors  
+T[i]<--T2[]
+finsi 
+finsi 
+finpour 
+tri-rapide(T,D,P-1)
+tri-rapide(T,P+1,F)
+finsi 
+fin 
+début 
+écrire("entier")
+lire(N)
+pour j de 0 à N-1 faire 
+lire(T[j])
+finpour 

@@ -1,0 +1,176 @@
+EX 39
+
+variable
+T,TN,TP: tableau d'entier
+n,p,g,i 
+debut 
+répéter 
+ecrire("la taille")
+lire(n)
+jusqu'à (n<20) && (n>5)
+pour i de 0 à longueur(T)-1 faire
+ecrire ("le tableau T")
+lire(T[i])
+finpour
+p<--0
+g<--0
+pour i de 0 à longueur(T)-1 faire 
+   si T[i]>0 alors TP[p]<--T[i] && p<--p+1
+   sinon TN[g]<--T[i]  &&  g<--g+1
+   finsi 
+finpour 
+ecrire("tableau d'origine", T) 
+ecrire("tableau des éléments positifs", TP) 
+ecrire("tableau des éléments négatifs", TN)
+fin
+
+
+EX 40
+
+variable 
+T,TV,TC: tableau de chaine de caractère
+n,i,v,c: entier
+début
+ecrire("la taille")
+lire(n) 
+pour i de 0 à longueur(T)-1 faire
+ecrire ("le tableau T")
+lire(T[i])
+finpour
+v<--0
+c<--0
+pour i de 0 à longueur(T)-1 faire 
+   si majus(T[i])=A ou majus(T[i])=E ou majus(T[i])=Y ou majus(T[i])=U ou majus(T[i])=I ou majus(T[i])=O
+    alors TV[v]<--T[i] 
+     v<--v+1
+   sinon TC[c]<--T[i]  
+     c<--c+1
+   finsi 
+finpour 
+ecrire("tableau d'origine", T) 
+ecrire("tableau de voyelles", TV) 
+ecrire("tableau de consonnes", TC)
+fin
+
+EX 41
+variable 
+ch: chaine de caractère
+chif,n,i,j,p: entier
+début
+répéter
+écrire("le chiffre déci")
+lire(chif)
+écrire("l'entier")
+lire(n)
+jusqu'à (n>0) && (chif>=0) && (chif<10)
+i<--0
+p<--0
+j<--0
+ch<--"n"
+répéter 
+si ch[i]="chif" alors j<--j+1  && p<--i
+finsi 
+i<--i+1
+jusqu'à j=2 ou i=longueur(ch) 
+si j=2 alors 
+écrire("la deuxième position est", p)
+finsi 
+fin 
+
+CHALLENGE 2
+
+EX 1
+
+variable 
+mot: chaine de caractère 
+n: entier
+début 
+écrire("un mot")
+lire(mot)
+n<--longueur(mot)
+écrire("le nombre de lettres de ce mot est", n)
+fin 
+
+EX 2
+
+variable
+ch: chaine de caractèrev,i: entier 
+début
+écrire("une phrase")
+lire(ch)
+v<--0
+pour i de 0 à longueur(ch)-1 faire 
+si majus(ch[i])=A ou majus(ch[i])=E ou majus(ch[i])=Y ou majus(ch[i])=U ou majus(ch[i])=I ou majus(ch[i])=O
+alors v<--v+1
+finsi
+finpour
+écrire("le nombre de voyelles dans cette phrase est", v)
+fin 
+
+EX 3
+
+variable
+cod,msg,cle: chaine de caractère
+i: entier
+début
+écrire("un alphabet clé")
+lire(cle)
+écrire("message")
+lire(msg)
+cod<--""
+pour i de 0 à longueur(msg) faire
+cod<--cod+cle(ord(msg[i])-65)
+finpour 
+écrire("le cryptage est:", cod)
+fin 
+
+EX 4
+
+variable
+ch,l: chaine de caractère
+i: entier 
+début
+écrire("une chaine de caractère")
+lire(ch)
+écrire("une lettre")
+lire(l)
+i<--0
+tantque (NON ch[i]=l) et (i<longueur(ch)) faire
+i<--i+1
+fintantque
+si i<longueur(ch) alors
+écrire("la lettre", l, "éxiste")
+fin 
+
+EX 5
+
+variable 
+n: entier 
+début
+répéter
+écrire("un entier")
+lire(n)
+jusqu'à (3<n) && (n<10)
+écrire("*****")
+écrire("***")
+écrire("*")
+fin 
+
+EX 6 
+
+variable
+n,i,U(1),U(2)
+début
+répéter
+écrire("un entier")
+lire(n)
+jusqu'à (3<=n) && (n<=20)
+U(1)<--1
+U(2)<--3
+écrire("U1=1")
+écrire("U2=3")
+pour i de 3 à n faire
+U(i)=2*U(i-1)+3*U(i-2)
+ecrire(U(i))
+finpour
+fin 

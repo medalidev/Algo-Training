@@ -1,0 +1,541 @@
+EX 1
+variable 
+
+procédure signe() 
+variable 
+X: entier 
+début
+écrire("un nombre")
+lire(X)
+si X<0 alors écrire("négatif")
+sinon si X>0 alors écrire("positif")
+finsi 
+fin
+début
+signe()
+fin
+
+EX 2
+variable
+X,Y: entier 
+fonction produit(A,B: entier):chaine de caractère 
+variable
+CH: chaine de caractère
+début
+si ((A<0 et B>0) ou (A>0 et B<0)) alors
+ CH<--"le produit est négatif"
+sinon 
+CH<--"le produit est positif"
+finsi 
+RETOURNER CH 
+fin 
+début
+écrire("premier nombre")
+lire(X)
+écrire("deuxième nombre")
+lire(Y)
+écrire(produit(X,Y))
+fin
+
+EX 3
+variable
+puiss: reel 
+fonction puissance()
+variable
+a,p: reel 
+n,i: entier 
+début
+répéter
+lire(n)
+jusqu'à n>0
+lire(a)
+p<--1
+pour i de 1 à n faire 
+p<--p*a 
+finpour 
+retourner p
+fin
+début
+puiss<--puissance()
+écrire("la puissance est", puiss) 
+fin
+
+EX 4
+variable
+fact: entier 
+fonction factorielle()
+variable 
+f,i,n: entier
+début
+répéter
+lire(n)
+jusqu'à n>0
+f<--1
+pour i de 1 à n faire 
+f<--f*i
+finpour
+retourner f 
+fin 
+début
+fact<--factorielle()
+écrire("la factorielle est", fact)
+fin 
+
+EX 5
+variable
+D,M,Y: entier 
+fonction date(j,m,a: entier)
+variable
+CH: chaine de caractère
+reponse: booleen
+début
+reponse<--faux
+si ((m=1 ou m=3 ou m=5 ou m=7 ou m=8 ou m=10 ou m=12) && (1<=j<=31) && (0<a<2022)) alors 
+reponse<--vrai 
+sinon si ((m=4 ou m=6 ou m=9 ou m=11) && (1<=j<=30) && (0<a<2022)) alors 
+reponse<--vrai sinon 
+si (m=2 && 1<=j<=29 && ((a)div2)div2=0 && 0<a<2022) alors 
+reponse<--vrai sinon 
+si (m=2 && 1<=j && j<=28 &&  a>1970) alors 
+reponse<--vrai 
+finsi 
+si reponse=vrai alors CH<--"1" sinon CH<--"0" 
+finsi 
+retourner CH                  
+fin
+début
+lire(D)
+lire(M)
+lire(Y)
+écrire(date(D,M,Y))
+fin
+
+EX 6
+variable
+
+fonction nombre()
+variable
+x: reel
+début
+répéter
+lire(x)
+jusq'à (1<=x) && (x<=3)
+retourner X
+fin 
+début
+écrire(nombre())
+fin 
+
+EX 7
+variable
+tm:tableau d'entier 
+i:entier 
+fonction multiplication()
+variable
+x,i: entier
+T: tableau d'entier 
+début 
+répéter 
+lire(x)
+jusqu'à x>0
+pour i de 0 à 10 faire 
+T[i]<--i*x 
+finpour
+retourner T 
+fin
+début 
+
+Tm<--multiplication()
+pour i de 0 à longueur(tm)-1 faire 
+écrire(Tm[i])
+finpour
+fin 
+
+EX 8
+variable
+
+procédure division()
+variable
+a,b: entier 
+début
+répéter 
+lire(a)
+lire(b)
+jusqu'à a>0 && b>0
+répéter
+si (a>b) alors 
+a<--a-b sinon 
+b<--b-a 
+finsi 
+jusqu'à a=0 ou b=0
+si (b=0) alors 
+écrire("le pgcd est", a) sinon 
+écrire("le pgcd est", b)
+finsi 
+fin
+début
+division()
+fin 
+
+EX 9
+variable
+procedure calcul()
+variable
+X,Y,S,P: reel
+début
+écrire("premier nombre")
+lire(X)
+écrire("deuxième nombre")
+lire(Y)
+S<--X+Y 
+P<--X*Y
+si (S>0) alors 
+écrire("la somme est positive") sinon 
+écrire("la somme est négative")
+finsi 
+si (P>0) alors 
+écrire("le produit est positive") sinon 
+écrire("le produit est négative")
+finsi
+fin 
+début
+calcul()
+fin  
+
+EX 10
+variable
+X: entier
+procédure premier(N: entier)
+variable
+d: reel 
+i: entier 
+début
+si N<=2 alors 
+écrire("premier") sinon
+i<--2
+répéter 
+d<--N/i 
+i<--i+1
+jusqu'à FRAC(d)=0 ou i=(N)div2+1
+finsi
+si FRAC(d)=0 alors 
+écrire("non premier")
+sinon écrire("premier")
+finsi 
+fin 
+début
+lire(X)
+premier(X)
+fin 
+
+EX 11
+variable
+TV: tableau de chaine de caractere
+NV,j: entier 
+fonction voyelle(T: tableau de chaine de caractere):entier 
+variable
+i,c,pos,PL: entier 
+début
+i<--0
+c<--0
+pos<--0
+tantque c<2 && i<longueur(T) faire 
+si T[i]=A ou T[i]=E ou T[i]=Y ou T[i]=U ou T[i]=I ou T[i]=O alors 
+c<--c+1
+pos<--i 
+finsi 
+i<--i+1
+fintantque
+si (c==2) alors 
+PL<-- pos sinon
+PL<-- -1
+finsi 
+retourner PL
+fin 
+début
+écrire("longueur")
+lire(NV)
+pour j de 0 à NV-1 faire 
+répéter
+lire(TV[j])
+jusqu'à ORD(T[j])>=65 && ORD(T[j])<=90 &&longueur(T[j])==1
+finpour 
+écrire(voyelle(TV))
+fin
+
+EX 12
+variable
+TV: tableau d'entier 
+NV,X,j: entier
+fonction existe(T:tableau d'entier,A:entier)
+variable
+i,ext: entier 
+trouv: booleen 
+début
+i<--0
+trouv<--faux
+Tantque trouv=faux && i<longueur(T) faire 
+si T[i]==A alors 
+trouv<--vrai 
+finsi 
+i<--i+1
+fintantque 
+si trouv=vrai alors
+ext<-- 1 sinon 
+ext<-- -1
+finsi 
+retourner ext 
+fin 
+début 
+écrire("longueur")
+lire(NV)
+pour j de 0 à NV-1 faire 
+lire(TV[j])
+finpour 
+écrire("valeur")
+lire(X)
+écrire(existe(TV,X))
+fin 
+
+EX 13
+variable
+TV: tableau d'entier 
+NV,X,j: entier
+fonction existe(T:tableau d'entier,A:entier)
+variable
+min,max,mil,ext: entier 
+trouv: booleen 
+début
+min<--0
+max<--longueur(T)-1 
+trouv<--faux
+Tantque trouv=faux && min<max faire 
+mil<--(min+max)div2 
+si T[mil]==A alors
+trouv=vrai sinon 
+si T[mil]>A alors 
+max<--mil-1 sinon 
+min<--mil+1
+finsi 
+finsi 
+fintantque 
+si trouv=vrai alors
+ext<-- 1 sinon 
+ext<-- -1
+finsi 
+retourner ext 
+fin 
+début 
+/*tableau déja existe*/ 
+écrire("valeur")
+lire(X)
+écrire(existe(TV,X))
+fin
+
+EX 14
+variable
+k,N:entier 
+Tf:tableau d'entier 
+fonction trier(T:tableau d'entier):tableau 
+variable
+sup,i,j:entier 
+début
+sup<--T[0]
+pour i de longueur(T)-1 à 0 faire 
+pour j de 0 à i faire 
+si T[i]>T[i+1] alors 
+sup<--T[i]
+t[i]<--T[i+1]
+T[i+1]<--sup
+finsi 
+finpour 
+finpour
+retourner T 
+fin
+début 
+écrire("longueur")
+lire(N)
+pour k de 0 à N-1 faire 
+lire(Tf[k])
+finpour 
+trier(Tf)
+fin 
+
+CHALLENGE 
+
+EX 1
+variable
+
+procédure pairs()
+variable 
+T: tableau d'entier 
+pour:reel 
+i,j,p:entier 
+début 
+i<--0 
+lire(T[0])
+Tantque  (T[i]<>-1) faire 
+i<--i+1
+lire(T[i])
+fintantque 
+p<--0
+pour j de 0 à longueur(T)-1 faire 
+si (T[j]mod2==0) alors 
+p<--p+1
+finsi 
+finpour 
+pour<--(p/n)*100
+écrire ("le nombre d'entiers pairs est", p, "et leur pourcentage est", pour)
+fin 
+début 
+pairs()
+fin 
+
+EX 2
+variable
+
+procédure valeurs()
+variable
+T,TP: tableau d'entier 
+N,M,i,j: entier
+début 
+écrire("la première valeur")
+lire(M)
+écrire("la deuxième valeur")
+lire(N)
+si (N-M)>=2 alors 
+pour i de 0 à N-M-2 faire 
+T[i]<--M+i+1
+finpour 
+sinon 
+écrire("n'éxiste pas")
+finsi 
+j<--0
+pour i de 0 à longueur(T)-1 faire 
+si (T[i]mod2==0) alors 
+TP[j]<--T[i]
+j<--j+1
+finsi 
+finpour 
+pour i de 0 à longueur(TP)-1 faire 
+lire(TP[i]) 
+finpour
+fin 
+début 
+valeurs()
+fin 
+
+EX 3
+variable 
+
+procédure date()
+variable 
+D,DN,N:chaine de caractère 
+début 
+écrire("la date d'aujourd'hui")
+lire(D)
+écrire("le nom")
+lire(N)
+écrire("Bienvenue", N)
+écrire("la date d'anniversaire")
+lire(DA)
+si D=DA alors 
+écrire("Joyeux Anniversaire", N)
+sinon 
+écrire("erreur de personne!")
+finsi 
+fin 
+début 
+date()
+fin 
+
+EX 4
+variable 
+A,B: entier 
+procédure multip(M,N:entier)
+variable
+P,i:entier 
+début 
+P<--0
+pour i de 1 à M faire 
+P<--P+N
+finpour
+fin 
+début 
+écrire("premier nombre")
+lire(A)
+écrire("deuxième nombre")
+lire(B) 
+multip(A,B)
+fin 
+
+EX 5 
+variable 
+
+procédure image()
+variable 
+N,i:entier 
+CH1,CH2: chaine de caractère 
+début 
+répéter
+lire(N)
+jusqu'à (N>0)
+convch(N,CH1)
+CH2<--""
+pour i de longueur(CH1) à 1 faire 
+CH2<--CH2+CH1[i]
+finpour 
+écrire(CH2)
+fin 
+début 
+image()
+fin 
+
+EX 6
+variable 
+C:chaine de caractère 
+fonction voyelles(CH:chaine de caractère)
+variable 
+v,i: entier 
+début 
+v<--0 
+pour i de 0 à longueur(CH)-1 faire 
+si CH[i]=a ou CH[i]=A ou CH[i]=e ou CH[i]=E ou CH[i]=y ou CH[i]=Y ou CH[i]=u ou CH[i]=U ou CH[i]=i ou CH[i]=I ou CH[i]=o ou CH[i]=O alors 
+v<--v+1 
+finsi 
+finpour 
+retourner v 
+fin 
+début 
+écrire("chaine de caractère")
+lire(C)
+écrire(voyelles(C))
+fin 
+
+EX 7
+variable 
+SH,S:chaine de caractère 
+fonction purge(CH,C:chaine de caractère)
+variable 
+ch1: chaine de caractère 
+i: entier 
+début 
+ch1<--""
+pour i de 0 à longueur(CH)-1 faire
+si CH[i]==C alors 
+ch1<--ch1 
+sinon 
+ch1<--ch1+CH[i]
+finsi 
+finpour
+retourner ch1 
+fin 
+début  
+écrire("chaine de caractère")
+lire(SH)
+écrire("caractère")
+lire(S)
+écrire(purge(SH,S))
+fin 
+
+
